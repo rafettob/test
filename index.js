@@ -19,8 +19,9 @@ var app = express();
 
 // 	server.listen(process.argv[2] ||3000);
 
-
-var server = http.createServer(app).listen(3000);
+var port = process.env.PORT || process.argv[2] || 3000;
+var server = http.createServer(app).listen(port);
+console.log("Server listening on port: " + port);
 
 app.use(express.static('./'));
 
